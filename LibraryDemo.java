@@ -38,7 +38,7 @@ public class LibraryDemo {
     		author.setFirstName(auth[0]);
     		author.setLastName(auth[1]);
     		String isbn = tokens[2];
-    		LocalDate publishDate = LocalDate.parse(tokens[3]);
+    		String publishDate = tokens[3];
     		Book b = new Book(title, author, isbn, publishDate);
     		b.setTitle(title);
     		b.setAuthor(author);
