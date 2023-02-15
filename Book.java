@@ -11,16 +11,18 @@ public class Book {
 	private String title;
 	private String isbn;
 	private Author author;
-	private LocalDate publishDate;
+	private String publishDate;
+	private int age;
 	
+
 	public Book(String title, Author author, String isbn, String publishDate) {
 		this.title=title;
-		this.author=author;
 		this.isbn=isbn;
-		this.publishDate = LocalDate.parse(publishDate);
+		this.author=author;
+		this.publishDate=publishDate;
 	}
 
-	
+
 
 	/**
 	 * Getter method for author
@@ -85,18 +87,20 @@ public class Book {
 		return this.publishDate.toString();
 	}
 
-	
-	public void setPublishDate(LocalDate publishDate2) {
-		this.publishDate = publishDate2;
-	}
-
-
 
 	/**
 	 * returns the age of the book
 	 */
 	public int getAge() {
-		return Period.between(this.publishDate, LocalDate.now()).getYears();
+		int age = Period.between(LocalDate.parse(publishDate), LocalDate.now()).getYears();
+		return age;
+	}
+
+
+
+	public void setPublishDate(String publishDate) {
+		this.publishDate= publishDate;
+		
 	}
 	
 }
